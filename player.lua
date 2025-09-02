@@ -2,7 +2,7 @@ playerStartX = 360
 playerStartY = 100
 
 world:addCollisionClass("player", {})
-player = world:newRectangleCollider(playerStartX, playerStartY, 40, 40, {
+player = world:newRectangleCollider(playerStartX, playerStartY, 50, 60, {
     collision_class = "player"
 })
 
@@ -11,11 +11,28 @@ player.isSprinting = false
 
 function updatePlayer(dt)
   movePlayer(dt)
+  player.animation = animations.idle
+  if player.isMoving then
+    -- place here different animations for different direction
+    if player.direction == 'right' then
+      player.animation = animations.move
+    end
+    if player.direction == 'left' then
+      player.animation = animations.move
+    end
+    if player.direction == 'up' then
+      player.animation = animations.move
+    end
+    if player.direction == 'down' then
+      player.animation = animations.move
+    end
+  end
+  player.animation:update(dt)
 end
 
 function movePlayer(dt)
   player.moveX, player.moveY = 0, 0
-  player.isSprinting = love.keyboard.isDown("lshift") or love.keyboard.isDown("rshift")
+  player.isSprinting = love.keyboard.isDown("space")
   player.isMoving = false
   local currentSpeed = player.isSprinting and player.sprintSpeed or player.speed
 

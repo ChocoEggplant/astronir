@@ -16,7 +16,7 @@ function love.load()
     local grid = imgToGrid(sprites.playerSheet, 4, 2)
 
     animations = {
-        idle = anim8.newAnimation(grid('1-4', 1), 0.15),
+        idle = anim8.newAnimation(grid('1-4', 1), 0.3),
         move = anim8.newAnimation(grid('1-4', 2), 0.15),
     }
 
@@ -37,7 +37,7 @@ function love.draw()
     love.graphics.clear(0.25, 0.88, 0.82, 1)
     world:draw()
     local px, py = player:getPosition()
-    animations.idle:draw(sprites.playerSheet, px, py, nil, 5)
+    player.animation:draw(sprites.playerSheet, px, py, nil, 2, 2, 13, 17)
 end
 
 function setupWorld()
