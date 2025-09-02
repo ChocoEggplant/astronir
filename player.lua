@@ -3,7 +3,7 @@ playerStartY = 100
 
 world:addCollisionClass("player", {})
 player = world:newRectangleCollider(playerStartX, playerStartY, 50, 60, {
-    collision_class = "player"
+  collision_class = "player"
 })
 
 player.speed = 200
@@ -15,16 +15,16 @@ function updatePlayer(dt)
   if player.isMoving then
     -- place here different animations for different direction
     if player.direction == 'right' then
-      player.animation = animations.move
+      player.animation = animations.right
     end
     if player.direction == 'left' then
-      player.animation = animations.move
+      player.animation = animations.left
     end
     if player.direction == 'up' then
-      player.animation = animations.move
+      player.animation = animations.up
     end
     if player.direction == 'down' then
-      player.animation = animations.move
+      player.animation = animations.down
     end
   end
   player.animation:update(dt)
@@ -38,24 +38,24 @@ function movePlayer(dt)
 
   local px, py = player:getPosition()
   if love.keyboard.isDown('right') then
-      player.isMoving = true
-      player.direction = 'right'
-      player:setX(px + player.speed*dt)
+    player.isMoving = true
+    player.direction = 'right'
+    player:setX(px + player.speed * dt)
   end
   if love.keyboard.isDown('left') then
-      player.isMoving = true
-      player.direction = 'left'
-      player:setX(px - player.speed*dt)
+    player.isMoving = true
+    player.direction = 'left'
+    player:setX(px - player.speed * dt)
   end
   if love.keyboard.isDown('up') then
-      player.isMoving = true
-      player.direction = 'up'
-      player:setY(py - player.speed*dt)
+    player.isMoving = true
+    player.direction = 'up'
+    player:setY(py - player.speed * dt)
   end
   if love.keyboard.isDown('down') then
-      player.isMoving = true
-      player.direction = 'down'
-      player:setY(py + player.speed*dt)
+    player.isMoving = true
+    player.direction = 'down'
+    player:setY(py + player.speed * dt)
   end
 end
 
@@ -78,3 +78,4 @@ function sprintPlayer()
     player:applyLinearImpulse(0, 0)
   end
 end
+

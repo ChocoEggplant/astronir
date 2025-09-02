@@ -13,11 +13,19 @@ function love.load()
     sprites = {
         playerSheet = love.graphics.newImage('sprites/playerSheet.png'),
     }
-    local grid = imgToGrid(sprites.playerSheet, 4, 2)
+    local grid = imgToGrid(sprites.playerSheet, 4, 5)
 
+    local idle_row = 1
+    local down_row = 2
+    local right_row = 3
+    local left_row = 4
+    local up_row = 5
     animations = {
-        idle = anim8.newAnimation(grid('1-4', 1), 0.3),
-        move = anim8.newAnimation(grid('1-4', 2), 0.15),
+        idle = anim8.newAnimation(grid('1-4', idle_row), 0.3),
+        down = anim8.newAnimation(grid('1-4', down_row), 0.2),
+        left = anim8.newAnimation(grid('1-4', left_row), 0.2),
+        right = anim8.newAnimation(grid('1-4', right_row), 0.2),
+        up = anim8.newAnimation(grid('1-4', up_row), 0.2),
     }
 
     require('player')
@@ -30,7 +38,7 @@ function love.update(dt)
     camera:lookAt(px, love.graphics.getHeight() / 2)
 
     updatePlayer(dt)
-    animations.idle:update(dt)
+    animations.down:update(dt)
 end
 
 function love.draw()
