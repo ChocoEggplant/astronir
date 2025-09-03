@@ -28,6 +28,13 @@ function love.load()
         up = anim8.newAnimation(grid('1-4', up_row), 0.2),
     }
 
+    sounds = {
+        music = love.audio.newSource("audio/music.mp3", "stream")
+    }
+    sounds.music:setLooping(true)
+    sounds.music:setVolume(0.2)
+    sounds.music:play()
+    
     require('player')
 end
 
