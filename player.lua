@@ -1,8 +1,18 @@
-playerStartX = 360
-playerStartY = 100
+local startX = 400
+local startY = 500
+
+local grid = imgToGrid(sprites.playerSheet, 4, 5)
+
+local animations = {
+    idle = anim8.newAnimation(grid('1-4', 1), 0.3),
+    down = anim8.newAnimation(grid('1-4', 2), 0.2),
+    right = anim8.newAnimation(grid('1-4', 3), 0.2),
+    left = anim8.newAnimation(grid('1-4', 4), 0.2),
+    up = anim8.newAnimation(grid('1-4', 5), 0.2),
+}
 
 world:addCollisionClass("player", {})
-player = world:newRectangleCollider(playerStartX, playerStartY, 50, 60, {
+player = world:newRectangleCollider(startX, startY, 50, 60, {
   collision_class = "player"
 })
 
@@ -28,6 +38,10 @@ function updatePlayer(dt)
     end
   end
   player.animation:update(dt)
+end
+
+function drawPlayer(px, py)
+  player.animation:draw(sprites.playerSheet, px, py, nil, 2, 2, 13, 17)
 end
 
 function movePlayer(dt)
