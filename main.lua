@@ -44,10 +44,14 @@ function love.update(dt)
         end
 
         if player:enter('play') then
-            print('touched')
             menu_component:destroy()
             Exit:destroy()
+            Exit2:destroy()
             Menu = false
+            base:setX(400 + 175)
+            base:setY(200 + 500)
+            StartX = 400
+            StartY = 200
         end
     else
         camera:lookAt(px, py)

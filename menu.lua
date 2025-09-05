@@ -1,6 +1,4 @@
 Menu = true
-local startX = 400
-local startY = 200
 local play_sprite = love.graphics.newImage('sprites/play.png')
 local exit_sprite = love.graphics.newImage('sprites/exit.png')
 local grid = imgToGrid(play_sprite, 1, 1)

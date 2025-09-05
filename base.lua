@@ -1,5 +1,5 @@
-local startX = 400
-local startY = 200
+StartX = 4000
+StartY = 2000
 local sprite = love.graphics.newImage('sprites/Base.png')
 local grid = imgToGrid(sprite, 1, 1)
 local animations = {
@@ -8,7 +8,7 @@ local animations = {
 
 
 world:addCollisionClass("base", {})
-base = world:newRectangleCollider(startX, startY + 400, 360, 200, {
+base = world:newRectangleCollider(StartX, StartY, 360, 200, {
   collision_class = "base"
 })
 
@@ -20,5 +20,5 @@ function updateBase(dt)
 end
 
 function drawBase(playerX, playerY)
-  base.animation:draw(sprite, startX, startY, nil, 3, 3)
+  base.animation:draw(sprite, StartX, StartY, nil, 3, 3)
 end
