@@ -17,7 +17,6 @@ function love.load()
 
     sprites = {
         playerSheet = love.graphics.newImage('sprites/player_sheet.png'),
-        
     }
 
     local sounds = {
