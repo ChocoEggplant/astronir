@@ -18,6 +18,7 @@ player = world:newRectangleCollider(startX, startY, 50, 60, {
 
 player.speed = 200
 player.isSprinting = false
+player:setFixedRotation(true)
 
 function updatePlayer(dt)
   movePlayer(dt)

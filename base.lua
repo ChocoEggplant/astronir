@@ -8,7 +8,7 @@ local animations = {
 
 
 world:addCollisionClass("base", {})
-base = world:newRectangleCollider(startX, startY, 120, 200, {
+base = world:newRectangleCollider(startX, startY + 400, 360, 200, {
   collision_class = "base"
 })
 
@@ -20,5 +20,5 @@ function updateBase(dt)
 end
 
 function drawBase(playerX, playerY)
-  base.animation:draw(sprite, startX, startY)
+  base.animation:draw(sprite, startX, startY, nil, 3, 3)
 end
