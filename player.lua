@@ -4,11 +4,11 @@ local startY = 500
 local grid = imgToGrid(sprites.playerSheet, 4, 5)
 
 local animations = {
-    idle = anim8.newAnimation(grid('1-4', 1), 0.3),
-    down = anim8.newAnimation(grid('1-4', 2), 0.2),
-    right = anim8.newAnimation(grid('1-4', 3), 0.2),
-    left = anim8.newAnimation(grid('1-4', 4), 0.2),
-    up = anim8.newAnimation(grid('1-4', 5), 0.2),
+    idle = anim8.newAnimation(grid('1-4', 1), 0.75),
+    down = anim8.newAnimation(grid('1-4', 2), 0.375),
+    right = anim8.newAnimation(grid('1-4', 3), 0.375),
+    left = anim8.newAnimation(grid('1-4', 4), 0.375),
+    up = anim8.newAnimation(grid('1-4', 5), 0.375),
 }
 
 world:addCollisionClass("player", {})

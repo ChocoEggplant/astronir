@@ -1,9 +1,8 @@
 
 local startX = 400
 local startY = 200
-
-local grid = imgToGrid(sprites.base, 1, 1)
-
+local sprite = love.graphics.newImage('sprites/base.png')
+local grid = imgToGrid(sprite, 1, 1)
 local animations = {
   idle = anim8.newAnimation(grid('1-1', 1), 0.3),
 }
@@ -21,5 +20,5 @@ function updateBase(dt)
 end
 
 function drawBase(playerX, playerY)
-  base.animation:draw(sprites.base, startX, startY)
+  base.animation:draw(sprite, startX, startY)
 end

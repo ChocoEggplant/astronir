@@ -1,5 +1,9 @@
 require('helpers')
 
+function love.conf(t)
+  t.console = true
+end
+
 function love.load()
     math.randomseed(os.time())
     love.window.setMode(1000, 768)
@@ -13,8 +17,7 @@ function love.load()
 
     sprites = {
         playerSheet = love.graphics.newImage('sprites/player_sheet.png'),
-        beanSack = love.graphics.newImage('sprites/bean_sack.jpg'),
-        base = love.graphics.newImage('sprites/base.png'),
+        
     }
 
     local sounds = {
@@ -23,7 +26,8 @@ function love.load()
     sounds.music:setLooping(true)
     sounds.music:setVolume(0.15)
     sounds.music:play()
-    
+
+    require('plants')
     require('base')
     require('player')
 end
@@ -32,18 +36,22 @@ function love.update(dt)
     world:update(dt)
 
     local px, py = player:getPosition()
-    -- camera:lookAt(px, love.graphics.getHeight() / 2)
+    camera:lookAt(px, py)
 
     updatePlayer(dt)
+    updatePlants(dt)
 end
 
 function love.draw()
     love.graphics.clear(0.25, 0.88, 0.82, 1)
+    camera:attach()
     world:draw()
 
     local px, py = player:getPosition()
     drawBase(px, py)
     drawPlayer(px, py)
+    drawPlants(px, py)
+    camera:detach()
 end
 
 function setupWorld()
@@ -54,6 +62,6 @@ end
 
 function love.keypressed(key)
     if key == "space" and player.body then
-        sprintPlayer()
+        --sprintPlayer()
     end
 end
