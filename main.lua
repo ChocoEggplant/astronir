@@ -21,7 +21,7 @@ function love.load()
     }
 
     local sounds = {
-        music = love.audio.newSource("audio/music.mp3", "stream")
+        music = love.audio.newSource("audio/meepmoop.mp3", "stream")
     }
     sounds.music:setLooping(true)
     sounds.music:setVolume(0.15)
