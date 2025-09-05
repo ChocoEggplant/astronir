@@ -51,22 +51,22 @@ function movePlayer(dt)
   local currentSpeed = player.isSprinting and player.sprintSpeed or player.speed
 
   local px, py = player:getPosition()
-  if love.keyboard.isDown('right') then
+  if love.keyboard.isDown('right', 'd') then
     player.isMoving = true
     player.direction = 'right'
     player:setX(px + player.speed * dt)
   end
-  if love.keyboard.isDown('left') then
+  if love.keyboard.isDown('left', 'a') then
     player.isMoving = true
     player.direction = 'left'
     player:setX(px - player.speed * dt)
   end
-  if love.keyboard.isDown('up') then
+  if love.keyboard.isDown('up', 'w') then
     player.isMoving = true
     player.direction = 'up'
     player:setY(py - player.speed * dt)
   end
-  if love.keyboard.isDown('down') then
+  if love.keyboard.isDown('down', 's') then
     player.isMoving = true
     player.direction = 'down'
     player:setY(py + player.speed * dt)
@@ -92,4 +92,3 @@ function sprintPlayer()
     player:applyLinearImpulse(0, 0)
   end
 end
-
